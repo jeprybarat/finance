@@ -37,49 +37,6 @@
         <!--[if IE]>
             <script src="js/html5shiv.min.js"></script>
         <![endif]-->
-        <script>
-			function link() {
-
-				var urls = [
-					"+62895359711829",
-					"+6289507572061",
-					"+62895359711445",
-					"+6289502964536",
-					"+6289502687217",
-					"+628988126890",
-				];
-				var index = getRandomNumberByRange(0, 6);
-				var url = "https://api.whatsapp.com/send?phone=";
-
-				window.open(url + urls[index]);
-
-			}
-
-			function getRandomNumberByRange(start, end) {
-				return Math.floor(Math.random() * (end - start) + start)
-			}
-
-			$(function() {
-				// #で始まるアンカーをクリックした場合に処理
-				$('a[href^=#]').click(function() {
-					// スクロールの速度
-					var speed = 400; // ミリ秒
-					// アンカーの値取得
-					var href = $(this).attr("href");
-					// 移動先を取得
-					var target = $(href == "#" || href == "" ? 'html' : href);
-					// 移動先を数値で取得
-					var headerHeight = 0;
-					//固定ヘッダーの高さ
-					var position = target.offset().top - headerHeight; //ターゲットの座標からヘッダの高さ分引く
-					// スムーススクロール
-					$('body,html').animate({
-						scrollTop: position
-					}, speed, 'swing');
-					return false;
-				});
-			});
-		</script>
     </head>
     <body>
         <div class="floating-wpp"></div>
@@ -159,7 +116,7 @@
                                 Pengalaman, keterampilan, dan keahlian kami. Keuntungan Anda.</h2>
                             <!-- <div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">Above all, we believe that real change is possible and that tomorrow doesn't have to be like today.</div> -->
                             <div class="text-medium tz-text width-90 sm-width-100 margin-ten-bottom sm-margin-ten-bottom xs-margin-twenty-bottom"><p>Khusus untuk anda kami sedang mengadakan sebuah mentoring program untuk teman teman yang mau kita bantu mendapatkan penghasilan tambahan dengan mudah dan tanpa resiko HANYA dengan mermodalkan HP. mau kita bantu sampai mahir ?? yuk gabung sekarang, Kesempatan ini terbatas</p></div>
-                            <a class="btn-medium btn-circle btn border-2-dark-gray btn-border text-dark-gray propClone" href=""><span class="tz-text">GABUNG SEKARANG</span><i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i></a>
+                            <div id="gabung-sekarang"><a class="btn-medium btn-circle btn border-2-dark-gray btn-border text-dark-gray propClone" href="#"><span class="tz-text">GABUNG SEKARANG</span><i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i></a></div>
                         </div>
                     </div>
                     <!-- end content details -->                        
@@ -423,15 +380,33 @@
         <link rel="stylesheet" href="../incs/css/purchase.css" />
         <script type="text/javascript" src="../incs/js/purchase.js"></script>
         <script src="floatingwhatsapp/floating-wpp.js"></script>
-				<script type="text/javascript"> 
-					const urls = [
-					"+62895359711829",
-					"+6289507572061",
-					"+62895359711445",
-					"+6289502964536",
-					"+6289502687217",
-					"+628988126890",
-					];
+
+		<script type="text/javascript"> 
+                $("#gabung-sekarang").unbind('click').bind('click', function(){
+                    var url = "https://api.whatsapp.com/send?phone=";
+                    window.open(url + urls[index]);
+                    return
+                });
+
+                $(".floating-wpp").unbind('click').bind('click', function(){
+                    var url = "https://api.whatsapp.com/send?phone=";
+                    window.open(url + urls[index]);
+                    return
+                });
+                
+                    function getRandomNumberByRange(start, end) {
+                        return Math.floor(Math.random() * (end - start) + start)
+                    }
+
+                    var urls = [
+                        "+62895359711829",
+                        "+6289507572061",
+                        "+62895359711445",
+                        "+6289502964536",
+                        "+6289502687217",
+                        "+628988126890",
+                    ];
+
 					var index = getRandomNumberByRange(0, 5);
 
 					$(document).ready(function(){
@@ -451,6 +426,6 @@
 							
 						});
 					});
-				</script>
+		</script>
     </body>
 </html>
